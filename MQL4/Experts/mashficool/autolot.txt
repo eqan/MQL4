@@ -1,0 +1,55 @@
+*Auto Lot Formula*
+
+So, if a trader has an account equity of $10,000 that $10,000 would be multiplied by the risk per trade (2%) to get the amount the trader will risk which is $200. 
+
+$10,000 x (0.02) = $200 RISK 
+suppose The stop loss (SL) on a trade is 67 pips 
+$200 / 67 pips = $2.98 per pip which is the same as a 0.29 lot size
+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+enum en_lotSize
+  {
+   FIXED = 0, //FIXED
+   AUTOMATIC = 1, //AUTOMATIC
+  };
+
+
+input en_lotSize lotType = 0;                                 // Lot type
+input double LotSize = 0.01;                                   // Fixed Lot Size
+input double riskSL = 1;                                      // Risk% for Autolot
+
+int step=2;
+double PV=1;
+
+   if(MarketInfo(Symbol(),MODE_LOTSTEP) == 0.1)
+      {
+      step = 1;
+      PV = 1;
+      }
+   else if(MarketInfo(Symbol(),MODE_LOTSTEP) == 0.01)
+      {
+      step = 2;
+      PV = 10;
+      }
+   else
+      {
+      step = 0;
+      PV = 0.1;
+      }
+
+//+------------------------------------------------------------------+
+//| Function to return the AutoLot                                   |
+//+------------------------------------------------------------------+
+double autoLot()
+  {
+   if(lotType == 0 || stopLoss == 0)
+      return LotSize;
+
+   double l = NormalizeDouble((AccountEquity() * riskSL / 100.0) / (stopLoss * PV),step);
+   l = MathMin(MarketInfo(Symbol(),MODE_MAXLOT),l);
+   l = MathMax(MarketInfo(Symbol(),MODE_MINLOT),l);
+   return l;
+  }

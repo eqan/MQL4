@@ -1,0 +1,11 @@
+// Algorithm
+-> An arrow and a dot will confirm a signal
+-> Feature to turn on and off the arrows or dots and so they can work independtly on their own
+-> • buy • buy in this scenario only 1 buy would be place as there was no sell in between
+
+// Trade management features
+-> Limit order option on then it will not place an immediate market order, it will only place a limit order
+-> Let's say there a point where sell signal came, so instead of putting the limit order at the same price, we will put the pending orer 30 pips above in case of sell !Only applicable with limit orders not market orders
+-> StopLoss
+-> TakeProfit
+-> Telegram Signals Broad Caster

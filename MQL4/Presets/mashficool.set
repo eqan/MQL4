@@ -1,0 +1,13 @@
+maxBars=5
+TimeFrame=H1
+RsiPeriod1=2
+RsiPeriod2=0
+RsiPeriod3=0
+RsiPeriod4=0
+MaType=1
+MaPeriod=2
+Interpolate=true
+arrowsIdentifier=SNL arrows
+alertsOn=true
+alertsMessage=false
+alertsEmail=false

@@ -1,0 +1,29 @@
+BTC "Buy" Signal at 44,000
+Date:9-12-2021
+Time: 14:00 hrs UTC
+Trade number: 1
+
+
+BTC "Exit Buy" Signal at 45,000
+Date:9-14-2021
+Time: 15:20 hrs UTC
+Trade number: 2
+ROI: +2.27%
+
+BTC "Re-enter Buy" Signal at 42,000
+Date:9-14-2021
+Time: 19:20 hrs UTC
+Trade number: 3
+
+
+BTC "Sell" Signal at 43,000
+Date:9-14-2021
+Time: 20:20 hrs UTC
+Trade number: 4
+ROI: +2.38%
+
+BTC "Buy" Signal at 40,000
+Date:9-14-2021
+Time: 23:10 hrs UTC
+Trade number: 5
+ROI: +6.97%

@@ -1,0 +1,49 @@
+//+----------------------------------------------------------------------+
+//| Function to return the number of History trades on the current Pair  |
+//+----------------------------------------------------------------------+
+int orderHistoryTotal()
+  {
+   int c = 0;
+   for(int i = OrdersHistoryTotal() - 1; i >= 0; --i) // Cycle searching in orders
+     {
+      if(OrderSelect(i,SELECT_BY_POS,MODE_HISTORY) == true)
+        {
+         if(OrderSymbol() == Symbol() && OrderMagicNumber() == magicNumber)
+            ++c;
+        }
+     }
+   return c;
+  }
+
+
+int history=orderHistoryTotal();
+
+
+   int h = orderHistoryTotal();
+   if(history != h)
+     {
+      onTradeClose(h - history);
+      history = h;
+     }
+
+
+
+
+//+------------------------------------------------------------------+
+//| Expert Trade Close function                                      |
+//+------------------------------------------------------------------+
+void onTradeClose(int count)
+  {
+   int j = 0;
+   for(int i = OrdersHistoryTotal() - 1; i >= 0; --i) // Cycle searching in orders
+     {
+      if(OrderSelect(i,SELECT_BY_POS,MODE_HISTORY) == true)
+        {
+         if(j < count && OrderSymbol() == Symbol() && OrderMagicNumber() == magicNumber)
+           {
+               
+            ++j;
+           }
+        }
+     }
+  }
